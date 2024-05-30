@@ -20,6 +20,8 @@ def main(page:ft.Page):
             return
         else:
             c.content=menu.main(page)
+            # page.window_close()
+            # c=subPage(target=menu.main)
             c.update()
 
     #Cuadro de Dialogo
@@ -37,12 +39,15 @@ def main(page:ft.Page):
                             color="White")
 
     txtcorreo=ft.TextField(hint_text='Ingresa tu Correo',icon=ft.icons.EMAIL,width=350,border='underline')
-    txtpassword=ft.TextField(hint_text='Ingresa Contraseña',icon=ft.icons.LOCK,width=350,border='underline')
+    txtpassword=ft.TextField(hint_text='Ingresa Contraseña',icon=ft.icons.LOCK,width=350,border='underline',password=True)
     btn=ft.ElevatedButton('Aceptar',bgcolor='blue',color='white',width=350,on_click=validar)
 
     c=ft.Container(border_radius=5,
+                   expand=True,
                    bgcolor=ft.colors.WHITE,
-                    content=ft.Column([txtcorreo,txtpassword,btn]))
+                    content=ft.Column([txtcorreo,txtpassword,btn],
+                                      alignment=ft.MainAxisAlignment.CENTER,
+                                      horizontal_alignment=ft.CrossAxisAlignment.CENTER))
 
     page.add(c)
     page.update()

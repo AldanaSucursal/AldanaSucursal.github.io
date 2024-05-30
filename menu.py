@@ -20,6 +20,7 @@ def main(page:ft.Page):
         elif e.control.selected_index==5:
             # # page.window_close()
             page.clean()
+            # contenedorP.clean()
             contenedorP.content=login.main(page)
         contenedorP.update()
 
@@ -63,7 +64,8 @@ def main(page:ft.Page):
     #Fila para el Rail y el Contenedor Principal
     fila=ft.Row([navrail,contenedorP],expand=True)
 
-    page.add(fila)
-    page.update()
+    return fila
+    # page.add(fila)
+    # page.update()
 if __name__=='__main__':
     ft.app(target=main,view=ft.AppView.WEB_BROWSER)
